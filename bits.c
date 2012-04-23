@@ -27,25 +27,25 @@ typedef struct
  *
 * STEP 1: Fill in the following struct with your identifying info.
  */
-team_struct team =
+team_struct team = 
 {
    /* Team name: Replace with either:
       Your login ID if working as a one person team
       or, ID1+ID2 where ID1 is the login ID of the first team member
       and ID2 is the login ID of the second team member */
-   "", 
+   "jasoday1+hall9", 
 
    /* Student name 1: Replace with the full name of first team member */
-   "",
+   "Jason Day",
 
    /* Login ID 1: Replace with the login ID of first team member */
-   "",
+   "jasoday1",
 
    /* The following should only be changed if there are two team members */
    /* Student name 2: Full name of the second team member */
-   "",
+   "Alexander Hall",
    /* Login ID 2: Login ID of the second team member */
-   ""
+   "hall9"
 };
 
 #if 0
@@ -165,9 +165,7 @@ NOTES:
  */
 int bitOr(int x, int y) {
 
-
-
-  return 2;
+    return ~((~x)|(~y));
 
 }
 /* 
@@ -221,7 +219,8 @@ int reverseBytes(int x) {
  *   Rating: 3
  */
 int conditional(int x, int y, int z) {
-  return 2;
+  
+    return (((!x)-1)&y) + ((~((!x)-1))&z); 
 }
 /* 
  * bang - Compute !x without using !
@@ -274,7 +273,13 @@ int isNotEqual(int x, int y) {
  *   Rating: 3 
  */
 int logicalShift(int x, int n) {
-  return 2;
+    
+    int z = x >> n;  
+    int y = 1<<31;  
+    y = y >> (n-1);  
+    y = ~y;  
+    
+    return z&y
 }
 /* 
  * rotateLeft - Rotate x to the left by n
