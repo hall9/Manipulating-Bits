@@ -296,12 +296,13 @@ int isNotEqual(int x, int y) {
  *   Rating: 3 
  */
 int logicalShift(int x, int n) {
-    int z = x >> n;  
+    int z;
+    z = x >> n;  
     int y = 1<<31;  
     y = y >> (n-1);  
     y = ~y;  
     
-    return z&y
+    return z&y;
 }
 /* 
  * rotateLeft - Rotate x to the left by n
@@ -335,7 +336,8 @@ int isAsciiDigit(int x) {
  *   Rating: 4
  */
 int absVal(int x) {
-    int z = x>>31;
+    int z; 
+    z = x>>31;
     z = z&1;
     z = ~z;
     z = z+1;
@@ -344,7 +346,7 @@ int absVal(int x) {
     y = y&1;
     z = z+y;
     
-    return z
+    return z;
 }
 /* 
  * isNonZero - Check whether x is nonzero using
