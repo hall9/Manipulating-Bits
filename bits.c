@@ -254,7 +254,7 @@ int bang(int x) {
  *   Rating: 1
  */
 int isTmax(int x) {
-  return ~(1 << 31);
+    return ~(x^(1<<31));
 }
 /* 
  * fitsBits - return 1 if x can be represented as an 
