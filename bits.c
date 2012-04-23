@@ -200,7 +200,6 @@ int bitMask(int highbit, int lowbit) {
     int mask1 = ~0 << highbit;
     int mask2 = ~(~0 << lowbit);
     int mask3 = ~(1 << highbit);
-    
     mask1 = mask1 & mask3;
     
     return ~(mask1 | mask2);
