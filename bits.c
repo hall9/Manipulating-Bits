@@ -174,11 +174,11 @@ int bitOr(int x, int y) {
  *   Rating: 2
  */
 int anyOddBit(int x) {
-    x ^= x >> 16
-    x ^= x >> 8
-    x ^= x >> 4
-    x ^= x >> 2
-    x ^= x >> 1
+    x ^= x >> 16;
+    x ^= x >> 8;
+    x ^= x >> 4;
+    x ^= x >> 2;
+    x ^= x >> 1;
     x &= 1;
 
     return x;
@@ -273,6 +273,8 @@ int isTmax(int x) {
  *   Rating: 2
  */
 int fitsBits(int x, int n) {
+    int mask = x >> 31;
+    
     return !(((~x & mask) + (x & ~mask)) >> (n + ~0));
 }
 /* 
