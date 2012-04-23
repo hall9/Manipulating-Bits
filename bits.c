@@ -186,7 +186,7 @@ int anyOddBit(int x) {
  *   Rating: 2
  */
 int copyLSB(int x) {
-  return 2;
+  return ((x << 31) >> 31);
 }
 /* 
  * bitMask - Generate a mask consisting of all 1's 
@@ -216,7 +216,12 @@ int bitMask(int highbit, int lowbit) {
  *   Rating: 3
  */
 int reverseBytes(int x) {
-  return 2;
+    int newbyte0 = (x >> 24) & 0xff;
+    int newbyte1 = (x >> 8) & 0xff00;
+    int newbyte2 = (x << 8) & 0xff0000;
+    int newbyte3 = x << 24;
+    
+    return newbyte0 | newbyte1 | newbyte2 | newbyte3;
 }
 /* 
  * conditional - same as x ? y : z 
@@ -254,7 +259,7 @@ int bang(int x) {
  *   Rating: 1
  */
 int isTmax(int x) {
-  return 2;
+  return ~(1 << 31);
 }
 /* 
  * fitsBits - return 1 if x can be represented as an 
@@ -266,7 +271,7 @@ int isTmax(int x) {
  *   Rating: 2
  */
 int fitsBits(int x, int n) {
-  return 2;
+    return !(((~x & mask) + (x & ~mask)) >> (n + ~0));
 }
 /* 
  * isNotEqual - return 0 if x == y, and 1 otherwise 
@@ -276,7 +281,7 @@ int fitsBits(int x, int n) {
  *   Rating: 2
  */
 int isNotEqual(int x, int y) {
-  return 2;
+  return (!!(x ^ y));
 }
 /* 
  * logicalShift - shift x to the right by n, using a logical shift
@@ -304,7 +309,7 @@ int logicalShift(int x, int n) {
  *   Rating: 3 
  */
 int rotateLeft(int x, int n) {
-  return 2;
+    return (x << n) | (x >> (32 - n)) & ~(-1 << n);
 }
 /* 
  * isAsciiDigit - return 1 if 0x30 <= x <= 0x39 (ASCII codes for characters '0' to '9')
@@ -316,7 +321,7 @@ int rotateLeft(int x, int n) {
  *   Rating: 3
  */
 int isAsciiDigit(int x) {
-  return 2;
+  return (!(x<<6))&((x << 5)) & (x << 4) & (~(x << 3) | (~(x << 2) & ~(x << 1)));
 }
 /* 
  * absVal - absolute value of x
