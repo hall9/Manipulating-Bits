@@ -174,7 +174,14 @@ int bitOr(int x, int y) {
  *   Rating: 2
  */
 int anyOddBit(int x) {
-    return 2;
+    x ^= x >> 16
+    x ^= x >> 8
+    x ^= x >> 4
+    x ^= x >> 2
+    x ^= x >> 1
+    x &= 1;
+
+    return x;
 }
 /* 
  * copyLSB - set all bits of result to least significant bit of x
