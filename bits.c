@@ -174,14 +174,7 @@ int bitOr(int x, int y) {
  *   Rating: 2
  */
 int anyOddBit(int x) {
-    x ^= x >> 16;
-    x ^= x >> 8;
-    x ^= x >> 4;
-    x ^= x >> 2;
-    x ^= x >> 1;
-    x &= 1;
-
-    return x;
+    return (x&1) | ((x&4)>>2) | ((x&16)>>4) | ((x&64)>>6) | ((x&256)>>8) | ((x&1024)>>10) | ((x&1073741824)>>30);
 }
 /* 
  * copyLSB - set all bits of result to least significant bit of x
@@ -296,13 +289,12 @@ int isNotEqual(int x, int y) {
  *   Rating: 3 
  */
 int logicalShift(int x, int n) {
-    int z;
-    z = x >> n;  
-    int y = 1<<31;  
-    y = y >> (n-1);  
-    y = ~y;  
+    int one = 0x1 << 31, two, three;
+    x = x >> n;
+    two = one >> n;
+    three = ~(two << 1);
     
-    return z&y;
+    return x & three;
 }
 /* 
  * rotateLeft - Rotate x to the left by n
