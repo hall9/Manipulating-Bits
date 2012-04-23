@@ -313,11 +313,7 @@ int logicalShift(int x, int n) {
  *   Rating: 3 
  */
 int rotateLeft(int x, int n) {
-    int z = x >> n; 
-    int y = 1<<31;  
-    y = y >> (n-1);  
-    y = ~y;    
-    return z&y;
+    return (x << n) | (x >> (32 - n)) & ~(-1 << n);
 }
 /* 
  * isAsciiDigit - return 1 if 0x30 <= x <= 0x39 (ASCII codes for characters '0' to '9')
