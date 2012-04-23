@@ -253,6 +253,9 @@ int bang(int x) {
  *   Rating: 1
  */
 int isTmax(int x) {
+    int m;
+    m = (1 << 31) + 1
+    
     return !(x ^ 0x7FFFFFFF);
 }
 /* 
