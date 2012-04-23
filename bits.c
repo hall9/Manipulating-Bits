@@ -164,9 +164,7 @@ NOTES:
  *   Rating: 1
  */
 int bitOr(int x, int y) {
-
     return ~((~x)|(~y));
-
 }
 /* 
  * anyOddBit - return 1 if any odd-numbered bit in word set to 1
@@ -199,7 +197,6 @@ int copyLSB(int x) {
  *   Rating: 3
  */
 int bitMask(int highbit, int lowbit) {
-    
     int mask1 = ~0 << highbit;
     int mask2 = ~(~0 << lowbit);
     int mask3 = ~(1 << highbit);
@@ -231,7 +228,6 @@ int reverseBytes(int x) {
  *   Rating: 3
  */
 int conditional(int x, int y, int z) {
-  
     return (((!x)-1)&y) + ((~((!x)-1))&z); 
 }
 /* 
@@ -241,8 +237,7 @@ int conditional(int x, int y, int z) {
  *   Max ops: 12
  *   Rating: 4 
  */
-int bang(int x) {
-    
+int bang(int x) {    
     x = ( x >> 16 ) | x;
     x = ( x >> 8 ) | x;
     x = ( x >> 4 ) | x;
@@ -292,7 +287,6 @@ int isNotEqual(int x, int y) {
  *   Rating: 3 
  */
 int logicalShift(int x, int n) {
-    
     int z = x >> n;  
     int y = 1<<31;  
     y = y >> (n-1);  
