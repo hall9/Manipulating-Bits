@@ -212,9 +212,11 @@ int bitMask(int highbit, int lowbit) {
  *   Rating: 3
  */
 int reverseBytes(int x) {
+    
+    
     int newbyte0 = (x >> 24) & 0xff;
     int newbyte1 = (x >> 8) & 0xff00;
-    int newbyte2 = (x << 8) & 0xff0000;
+    int newbyte2 = (x << 8) & (ff<<8);
     int newbyte3 = x << 24;
     
     return newbyte0 | newbyte1 | newbyte2 | newbyte3;
@@ -227,7 +229,7 @@ int reverseBytes(int x) {
  *   Rating: 3
  */
 int conditional(int x, int y, int z) {
-    return (((!x)-1)&y) + ((~((!x)-1))&z); 
+    return (((!x)+(-1)&y) + ((~((!x)+(-1))&z); 
 }
 /* 
  * bang - Compute !x without using !
@@ -254,9 +256,9 @@ int bang(int x) {
  */
 int isTmax(int x) {
     int m;
-    m = (1 << 31) + 1
+    m = 1 << 31 + 1;
     
-    return !(x ^ 0x7FFFFFFF);
+    return !(x ^ m);
 }
 /* 
  * fitsBits - return 1 if x can be represented as an 
