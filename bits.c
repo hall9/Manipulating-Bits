@@ -33,7 +33,7 @@ team_struct team =
       Your login ID if working as a one person team
       or, ID1+ID2 where ID1 is the login ID of the first team member
       and ID2 is the login ID of the second team member */
-   "jasoday1+hall9", 
+   "jasoday1hall9", 
 
    /* Student name 1: Replace with the full name of first team member */
    "Jason Day",
