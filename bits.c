@@ -216,7 +216,7 @@ int reverseBytes(int x) {
     
     int newbyte0 = (x >> 24) & 0xff;
     int newbyte1 = (x >> 8) & 0xff00;
-    int newbyte2 = (x << 8) & (ff<<8);
+    int newbyte2 = (x << 8) & (0xff<<8);
     int newbyte3 = x << 24;
     
     return newbyte0 | newbyte1 | newbyte2 | newbyte3;
@@ -256,7 +256,7 @@ int bang(int x) {
  */
 int isTmax(int x) {
     int m;
-    m = 1 << 31 + 1;
+    m = (1 << 31) + 1;
     
     return !(x ^ m);
 }
