@@ -334,7 +334,8 @@ int absVal(int x) {
     z = ~z;
     z = z+1;
     z = x^z;
-    int y = x>>31;
+    int y; 
+    y= x>>31;
     y = y&1;
     z = z+y;
     
