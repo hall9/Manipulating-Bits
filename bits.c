@@ -199,7 +199,14 @@ int copyLSB(int x) {
  *   Rating: 3
  */
 int bitMask(int highbit, int lowbit) {
-  return 2;
+    
+    int mask1 = ~0 << highbit;
+    int mask2 = ~(~0 << lowbit);
+    int mask3 = ~(1 << highbit);
+    
+    mask1 = mask1 & mask3;
+    
+    return ~(mask1 | mask2);
 }
 /* 
  * reverseBytes - reverse the bytes of x
@@ -230,7 +237,14 @@ int conditional(int x, int y, int z) {
  *   Rating: 4 
  */
 int bang(int x) {
-  return 2;
+    
+    x = ( x >> 16 ) | x;
+    x = ( x >> 8 ) | x;
+    x = ( x >> 4 ) | x;
+    x = ( x >> 2 ) | x;
+    x = ( x >> 1) | x;
+    
+    return ~x & 1;
 }
 /*
  * isTmax - returns 1 if x is the maximum, two's complement number,
@@ -313,7 +327,16 @@ int isAsciiDigit(int x) {
  *   Rating: 4
  */
 int absVal(int x) {
-  return 2;
+    int z = x>>31;
+    z = z&1;
+    z = ~z;
+    z = z+1;
+    z = x^z;
+    int y = x>>31;
+    y = y&1;
+    z = z+y;
+    
+    return z
 }
 /* 
  * isNonZero - Check whether x is nonzero using
@@ -324,5 +347,7 @@ int absVal(int x) {
  *   Rating: 4 
  */
 int isNonZero(int x) {
-  return 2;
+    int n = ~x + 1;
+    
+    return ((n >> 31) | (x >> 31)) & 1;
 }
