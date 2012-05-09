@@ -1,7 +1,11 @@
 #
 # Makefile that builds btest and other helper programs for the CS:APP data lab
 # 
-TEAM = jasoday1hall9
+TEAM = linux3[78]% make handin Team=jasoday1+hall9
+cp bits.c /afs/umbc.edu/users/c/m/cmsc313/pub/cmsc313_submissions/Proj5//TheProf-1-bits.c
+cp: accessing `/afs/umbc.edu/users/c/m/cmsc313/pub/cmsc313_submissions/Proj5//TheProf-1-bits.c': Permission denied
+make: *** [handin] Error 1
+
 VERSION = 1
 HANDINDIR = /afs/umbc.edu/users/c/m/cmsc313/pub/cmsc313_submissions/Proj5/
 
