@@ -229,7 +229,9 @@ int reverseBytes(int x) {
  *   Rating: 3
  */
 int conditional(int x, int y, int z) {
-    return (((!x)+(-1)&y) + ((~((!x)+(-1))&z); 
+    int num;
+    num = -1;
+    return (((!x)+num&y) + ((~((!x)+&z); 
 }
 /* 
  * bang - Compute !x without using !
